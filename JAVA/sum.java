@@ -13,9 +13,9 @@ sum = sum(x,y);
 System.out.println("The sum of two numbers x and y is: " + sum);  
 }  
 //method that calculates the sum  
-public static int sum(int a, int b)  
+public static int sum(int c, int d)  
 {  
-int sum = a + b;  
+int sum = c + d;  
 return sum;  
 }  
 }  
