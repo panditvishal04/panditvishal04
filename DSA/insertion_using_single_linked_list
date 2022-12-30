@@ -1,0 +1,103 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+struct node
+{
+    int data;
+    struct node* next;
+};
+void linkedlisttraversal(struct node*ptr)
+{
+    while(ptr!=NULL)
+    {
+        cout<<ptr->data<<"->";
+        ptr=ptr->next;
+    }
+    cout<<"NULL";
+}
+//case 1: insertion at begining
+struct node* insertatfirst(struct node* head,int data)
+{
+    struct node*ptr=(struct node*)malloc(sizeof(struct node));
+    ptr->data=data;
+    ptr->next=head;
+    return ptr;
+}
+//case 2:insert at end
+struct node* insertatend(struct node* head,int data)
+{
+    struct node* ptr=(struct node*)malloc(sizeof(struct node));
+    ptr->data=data;
+    struct node* p=head;
+    while(p->next!=NULL)
+    {
+        p=p->next;
+    }
+    p->next=ptr;
+    ptr->next=NULL;
+    return head;
+}
+//case 3:insertion after node
+struct node* insertafternode(struct node* head,struct node* prevnode,int data)
+{
+    struct node* ptr=(struct node*)malloc(sizeof(struct node));
+    ptr->data=data;
+    ptr->next=prevnode->next;
+    prevnode->next=ptr;
+    return head;
+}
+int main()
+{
+    int ch,val,i;
+    struct node* head;
+    struct node* second;
+    struct node* third;
+    struct node* fourth;
+    head=(struct node*)malloc(sizeof(struct node));
+    second=(struct node*)malloc(sizeof(struct node));
+    third=(struct node*)malloc(sizeof(struct node));
+    fourth=(struct node*)malloc(sizeof(struct node));
+    head->data=7;
+    head->next=second;
+    second->data=11;
+    second->next=third;
+    third->data=41;
+    third->next=fourth;
+    fourth->data=66;
+    fourth->next=NULL;
+    cout<<"linked list before insertion:\n";
+    linkedlisttraversal(head);
+    cout<<"\n choose one option:"<<endl;
+    cout<<"1.insertion at begining\n 2.insertion at end\n 3. insertion after an node\n";
+    cout<<"enter your choice:";
+    cin>>ch;
+    cout<<"enter the value you want to insert:";
+    cin>>val;
+    switch(ch)
+    {
+        case 1: head=insertatfirst(head,val);
+        break;
+        case 2: head=insertatend(head,val);
+        break;
+        case 3: cout<<"enter you want to insert data:";
+               cin>>i;
+       switch(i)
+        {
+            case 1: head=insertafternode(head,head,val);
+            break;
+            case 2: head=insertafternode(head,second,val);
+            break;
+            case 3: head=insertafternode(head,third,val);
+            break;
+            case 4: head=insertafternode(head,fourth,val);
+            break;
+            default: cout<<"not valid option";
+            break;
+        }
+        default: cout<<"not valid option";
+            break;
+    }
+    cout<<"\n linked list after insertion:"<<endl;
+    linkedlisttraversal(head);
+    return 0;
+}
