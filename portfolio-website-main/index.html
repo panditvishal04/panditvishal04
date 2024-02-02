@@ -37,7 +37,7 @@
                 </ul>
             </div>
             <div class="nav-button">
-                <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
+                <button class="btn" onclick="downloadCV()">Download CV <i class="uil uil-file-alt"></i></button>
             </div>
             <div class="nav-menu-btn">
                 <i class="uil uil-bars" onclick="myMenuFunction()"></i>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="featured-text-btn">
                         <button class="btn blue-btn">Hire Me</button>
-                        <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
+                        <button class="btn" onclick="downloadCV()">Download CV <i class="uil uil-file-alt"></i></button>
                     </div>
                     <div class="social_icons">
                         <a href="https://www.linkedin.com/in/vishal-pandit-63383b255/"> <div class="icon"><i class="uil uil-linkedin-alt"></i></div></a>
@@ -94,7 +94,7 @@
                                 on this exciting coding journey."
                             </p>
                             <div class="about-btn">
-                                <button class="btn">Download CV <i class="uil uil-import"></i></button>
+                                <button class="btn" onclick="downloadCV()">Download CV <i class="uil uil-file-alt"></i></button>
                             </div>
                         </div>
                     </div>
@@ -201,3 +201,20 @@
 </body>
 
 </html>
+<script>
+    function downloadCV() {
+      var cvFile = 'vishal.docx';
+  
+      var link = document.createElement('a');
+      link.href = cvFile;
+  
+      link.download = 'vishal.docx';
+  
+      document.body.appendChild(link);
+  
+      link.click();
+  
+      document.body.removeChild(link);
+    }
+  </script>
+  
