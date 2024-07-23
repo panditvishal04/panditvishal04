@@ -1,0 +1,14 @@
+.div1{
+    width: 800px;
+    height: 500px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.second{
+    width: 400px;
+    height: 200px;
+    background-color: beige;
+    
+}
